@@ -27,8 +27,8 @@ public class Main {
         System.out.println(f2);
         // 1
         System.out.println(f1.compararFecha(f2));
-        Punto punto1 = new Punto(0,2);
-        Punto punto2 = new Punto(6,3);
+        Punto punto1 = new Punto(1,3);
+        Punto punto2 = new Punto(4,6);
         System.out.println("Los puntos intermedio de: [" + punto1 + "] , [" + punto2 + "] son:" );
         System.out.println(p.dibujarLinea2D(punto1,punto2));
     }
