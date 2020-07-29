@@ -65,15 +65,15 @@ public class Fecha {
         //Mes
         if(this.mes < otra.mes){
             return -1;
-        }if(this.mes < otra.mes){
-            return -1;
+        }if(this.mes > otra.mes){
+            return 1;
         }
         //Día
         if(this.dia < otra.dia){
             return -1;
         }
-        if(this.dia < otra.dia){
-            return -1;
+        if(this.dia > otra.dia){
+            return 1;
         }
         return 0;
     }
