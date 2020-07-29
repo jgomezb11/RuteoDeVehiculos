@@ -9,7 +9,7 @@ public class Main {
 
         System.out.println();
 
-        Punto p = new Punto(-1, 1);
+        Punto p = new Punto(10, 20);
         // 0,0
         System.out.printf("Punto: {%f, %f}\n", p.x(), p.y());
         // 1*sqrt(2)
@@ -17,7 +17,7 @@ public class Main {
         // -45
         System.out.println("Angulo Polar: " + Math.toDegrees(p.anguloPolar()));
         // 2
-        System.out.println("Angulo Polar: " + p.distanciaEuclidiana(new Punto(1, 1)));
+        System.out.println("Distancia Euclidiana: " + p.distanciaEuclidiana(new Punto(0, 0)));
 
         System.out.println();
 
@@ -27,6 +27,10 @@ public class Main {
         System.out.println(f2);
         // 1
         System.out.println(f1.compararFecha(f2));
+        Punto punto1 = new Punto(0,2);
+        Punto punto2 = new Punto(6,3);
+        System.out.println("Los puntos intermedio de: [" + punto1 + "] , [" + punto2 + "] son:" );
+        System.out.println(p.dibujarLinea2D(punto1,punto2));
     }
 
 }
