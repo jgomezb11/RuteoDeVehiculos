@@ -96,15 +96,15 @@ public class Taller2 {
     }
 
     public static int lcs(String x, String y) {
-        if((x.length() != 0) && (y.length() != 0))
-            if(x.charAt(x.length() - 1) == y.charAt(y.length() -1)){
-                lcs(x.substring(0,x.length() - 1), y.substring(0, y.length() - 1));
+        if((x.length() == 0) || (y.length() == 0)) return 0;
+        if(x.charAt(x.length() - 1) == y.charAt(y.length() -1)){
+            return 1 + lcs(x.substring(0,x.length() - 1), y.substring(0, y.length() - 1));
 
-            }else{
-                lcs(x, y.substring(0, y.length() - 1));
-                lcs(x.substring(0,x.length() - 1), y);
-            }
-        return ??;
+        }else{
+            return Math.max(lcs(x, y.substring(0, y.length() - 1)),
+                   lcs(x.substring(0,x.length() - 1), y));
+        }
+        
     }
 
 }
