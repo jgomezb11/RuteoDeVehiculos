@@ -4,7 +4,7 @@ package Taller03;
  *
  * La clase Taller3 tiene como objtivo dar solución a los puntos del taller 3
  *
- * @author Mauricio Toro, Andrés Páez
+ * @author Julian Gomez, Juan Pablo Rincon.
  * @version 1
  */
 
@@ -70,7 +70,7 @@ public class Taller3 {
      *
      */
     private static void combinationsAux(String prefix, String s) {
-        
+
     }
 
     /**
@@ -95,7 +95,14 @@ public class Taller3 {
      *
      */
     private static void permutationAux(String prefix, String str) {
-        //...
+        int n = str.length();
+        if(n == 0){
+            System.out.println(prefix);
+        }else{
+            for(int i = 0; i < n; i++) {
+                permutationAux(prefix + str.charAt(i),str.substring(0,i) + str.substring(i+1,n));
+            }
+        }
     }
 
 
