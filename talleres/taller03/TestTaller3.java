@@ -54,6 +54,7 @@ public class TestTaller3 {
         System.out.println("Dato, Daot, Dtao, Dtoa, Doat, Dota, aDto, aDot, atDo, atoD, aoDt, aotD, tDao, tDoa, taDo, taoD, toDa, toaD, oDat, oDta, oaDt, oatD, otDa, otaD");
         System.out.println("");
         Taller3.permutation("Dato");
+
     }
 
 
@@ -68,10 +69,41 @@ public class TestTaller3 {
         System.out.println("Ejercicio 2");
         ejercicio2();
 
+        System.out.println("\nLas posibles permutaciones de abcd son: ");
+        Taller3.permutation("abcd");
+        System.out.println("Usare: adcb para poder desencriptar el archivo, esto es lo que dice: ");
+        System.out.println("¨"+AdvancedEncryptionStandard.desencriptarArchivo("adcb")+"¨");
+
         //Ejercicio3
         System.out.println("");
         System.out.println("Ejercicio 3");
         ejercicio3();
+        int nReinas = 4;
+        int[] tablero = new int[nReinas];
+        for(int i = 0; i < tablero.length; i++){
+            tablero[i] = -1;
+        }
+        System.out.println("Las soluciones para un tablero de: " + nReinas+" x "+ nReinas + " , son las siguientes: ");
+        Taller3.colocarReina(0,tablero,nReinas);
 
+        int pantalla[][] = {{1, 1, 1, 1, 1, 1, 1, 1},
+                            {1, 1, 1, 1, 1, 1, 0, 0},
+                            {1, 0, 0, 1, 1, 0, 1, 1},
+                            {1, 2, 2, 2, 2, 0, 1, 0},
+                            {1, 1, 1, 2, 2, 0, 1, 0},
+                            {1, 1, 1, 2, 2, 2, 2, 0},
+                            {1, 1, 1, 1, 1, 2, 1, 1},
+                            {1, 1, 1, 1, 1, 2, 2, 1},};
+
+        int x = 4, y = 4, newC = 3;
+        Taller3.floodFill(pantalla, x, y, newC);
+        int M = 8, N = 8;
+        System.out.println("Nueva pantalla actualiazada remplazando el 2 por el 3: ");
+        for (int i = 0; i < M; i++)
+        {
+            for (int j = 0; j < N; j++)
+                System.out.print(pantalla[i][j] + " ");
+            System.out.println();
+        }
     }
 }

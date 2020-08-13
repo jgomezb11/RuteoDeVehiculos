@@ -109,5 +109,76 @@ public class Taller3 {
         }
     }
 
+    private static boolean comprobar (int fila, int reinas[], int n)
+    {
 
+        for (int i=0; i<fila; i++)
+            if (  ( reinas[i]==reinas[fila] )                      // Misma columna
+                    || ( Math.abs(fila-i) == Math.abs(reinas[fila]-reinas[i]) ) ) // Misma diagonal
+                return false;
+
+        return true;
+    }
+    public static void colocarReina (int fila, int reinas[], int n)
+    {
+        if (fila<n) {
+            // Quedan reinas por colocar
+            for (reinas[fila]=0; reinas[fila]<n; reinas[fila]++) {
+                // Comprobamos si la posición
+                // de la reina actual es válida
+                if (comprobar(fila,reinas,n)) {
+                    // Si es así, intentamos colocar
+                    // las reinas restantes
+                    colocarReina (fila+1, reinas, n);
+                }
+            }
+
+        } else {
+            // No quedan reinas por colocar (solución)
+            mostrarTablero(reinas,n);
+        }
+    }
+
+    private static void mostrarTablero (int reinas[], int n)
+    {
+        System.out.println("Posiciones: ");
+        for(int a = 0; a < reinas.length; a++){
+            System.out.print(reinas[a]+" ,");
+        }
+        System.out.println();
+        for (int i=0; i<n; i++) {
+            for (int j=0; j<n; j++) {
+                if (reinas[i]==j)
+                    System.out.printf("#");
+                else
+                    System.out.printf("-");
+            }
+            System.out.printf(" %d %d\n",i,reinas[i]);
+        }
+        System.out.printf("\n");
+    }
+    static int M = 8;
+    static int N = 8;
+
+    public static void floodFillUtil(int screen[][], int x, int y,
+                              int prevC, int newC)
+    {
+        if (x < 0 || x >= M || y < 0 || y >= N)
+            return;
+        if (screen[x][y] != prevC)
+            return;
+
+        screen[x][y] = newC;
+
+        floodFillUtil(screen, x+1, y, prevC, newC);
+        floodFillUtil(screen, x-1, y, prevC, newC);
+        floodFillUtil(screen, x, y+1, prevC, newC);
+        floodFillUtil(screen, x, y-1, prevC, newC);
+    }
+
+    static void floodFill(int screen[][], int x, int y, int newC)
+    {
+        int prevC = screen[x][y];
+        floodFillUtil(screen, x, y, prevC, newC);
+    }
 }
