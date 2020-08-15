@@ -4,44 +4,31 @@
  * @author Juan Pablo Rincon - Julian Gomez Benitez
  * @version 15-09-2020
  */
-import java.io.*;
-import com.opencsv.*;
-import java.util.List;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class Datos{
-    
-    public static void leerDatos(){
-        FileReader archCSV = null;
-        CSVReader csvReader = null;
-        int cont = 0;
+    ArrayList<String []> datos = new ArrayList<String []>();
+    public void leerDatos(){
+        StringBuilder sb = new StringBuilder();
+        Path filePath = Paths.get("lite.csv");
         try {
-            archCSV = new FileReader("lite.csv");
-            CSVParser conPuntoYComa = new CSVParserBuilder().withSeparator(';').build();
-            csvReader = new CSVReaderBuilder(archCSV).withCSVParser(conPuntoYComa).build();
-            String[] fila = null;
-            while((fila = csvReader.readNext()) != null) {
-                System.out.println(fila[0]
-                    + " | " + fila[1]
-                    + " |  " + fila[2]);
+            BufferedReader br = Files.newBufferedReader(filePath);
+            String linea;
+            linea = br.readLine();
+            while ((linea = br.readLine()) != null){
+                String[] datosDeLinea = linea.split(";");
+                datos.add(datosDeLinea);
             }
+        }catch (IOException e){
+            e.printStackTrace();
         }
-        catch(IOException e) {
-            System.out.println(e);
-        }
-        catch(Exception e) {
-            System.out.println(e);
-        }
-        finally {
-            try { 
-                if(csvReader != null){
-                    csvReader.close();
-                    archCSV.close();
-                }
-            }
-            catch(IOException e) {
-                System.out.println(e);
-            }
-        }
+
     }
+
 }
+
