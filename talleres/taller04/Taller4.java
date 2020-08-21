@@ -19,7 +19,9 @@ public class Taller4{
      * @return la suma
      */
     public static int arrayMax(int[] array, int n) {
-
+        if(n == array.length)
+            return 0;
+        return Math.max(array[n], arrayMax(array,n+1));
     }
 
     /**
