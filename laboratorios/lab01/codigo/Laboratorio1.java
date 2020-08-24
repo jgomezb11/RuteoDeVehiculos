@@ -1,6 +1,5 @@
-
 /**
- * La clase Laboratorio1 busca la longitud de la cadena común más larga entre dos cadenas de Caracteres 
+ * La clase Laboratorio1 da respuesta a los puntos 1.1 y 1.2 del primer laboratorio propuesto.
  *
  * @author Julian Gomez | Juan Pablo Rincon 
  * @version 08/23/2020
@@ -13,7 +12,12 @@ import java.nio.file.Paths;
 
 
 public class Laboratorio1{
-    
+    /*
+     * Este metodo lee un archivo para obtener de ahí la cadena de caracteres que representan el ADN mitocondrial que se busca 
+     * comparar.
+     * @param file Nombre o PATH del archivo.
+     * @return linea Variable en la que queda guardada lo que se lee del archivo.
+     */
     public static String leerDatos(String file){
         StringBuilder sb = new StringBuilder();
         Path filePath = Paths.get(file);
@@ -26,6 +30,13 @@ public class Laboratorio1{
         }
         return linea;
     }
+    
+    /*
+     * Este metodo determina la subsecuencia común más larga entre dos cadenas de caracteres.
+     * @param x Primera cadena a comparar.
+     * @param y Segunda cadena a comparar.
+     * @return La longitud de la subsecuencia común más larga.
+     */
 
     public static int lcs(String x, String y) {
         if((x.length() == 0) || (y.length() == 0)) return 0;
@@ -38,6 +49,13 @@ public class Laboratorio1{
         }
 
     }
+    /*
+     * Este metodo calcula cuantas maneras hay de organizar rectangulos de 1x2 en un
+     * rectangulo de 2xn.
+     * @param n Tamaño del rectangulo 2xn.
+     * @return La cantidad de maneras que hay para ordenar rectangulos 1x2
+     * wn un rectangulo de 2xn.
+     */
     
     int ways(int n){
         if(n <= 2)
