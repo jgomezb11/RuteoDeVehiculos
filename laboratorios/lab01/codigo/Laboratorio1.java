@@ -4,33 +4,8 @@
  * @author Julian Gomez | Juan Pablo Rincon 
  * @version 08/23/2020
  */
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
-
-public class Laboratorio1{
-    /*
-     * Este metodo lee un archivo para obtener de ahí la cadena de caracteres que representan el ADN mitocondrial que se busca 
-     * comparar.
-     * @param file Nombre o PATH del archivo.
-     * @return linea Variable en la que queda guardada lo que se lee del archivo.
-     */
-    public static String leerDatos(String file){
-        StringBuilder sb = new StringBuilder();
-        Path filePath = Paths.get(file);
-        String linea = null;
-        try {
-            BufferedReader br = Files.newBufferedReader(filePath);
-            linea = br.readLine();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-        return linea;
-    }
-    
+public class Laboratorio1{  
     /*
      * Este metodo determina la subsecuencia común más larga entre dos cadenas de caracteres.
      * @param x Primera cadena a comparar.
@@ -40,7 +15,7 @@ public class Laboratorio1{
 
     public static int lcs(String x, String y) {
         if((x.length() == 0) || (y.length() == 0)) return 0;
-        if(x.charAt(x.length() - 1) == y.charAt(y.length() -1)){
+        if(x.charAt(x.length() - 1) == y.charAt(y.length() - 1)){
             return 1 + lcs(x.substring(0,x.length() - 1), y.substring(0, y.length() - 1));
 
         }else{
