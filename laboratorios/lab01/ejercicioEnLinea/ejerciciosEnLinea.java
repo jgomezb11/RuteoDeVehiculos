@@ -5,9 +5,9 @@ public class ejerciciosEnLinea {
     //Recursión 1
     //Ejercicio 1
     /**
-     * Este método saca el factorial de un número dado.
-     * @param n Es el número al cual se le va
-     * a sacar el factorial.
+     * Este método saca el factorial de un número dado , calculando término por término.
+     *
+     * @param n Es el número al cual se le va a sacar el factorial.
      * @return el factorial de n.
      */
     public int factorial(int n) {
@@ -20,6 +20,12 @@ public class ejerciciosEnLinea {
 
     //Ejercicio 2
 
+    /**
+     * Este método se encarga de devolver la cantidad de orejas de conejos que hayan.
+     *
+     * @param bunnies son los conejos a los que les vamos a calcular las orejas
+     * @return retorna la cantidad de orejas de los conejos
+     */
     public int bunnyEars(int bunnies) {
         if(bunnies == 0){
             return 0;
@@ -30,10 +36,10 @@ public class ejerciciosEnLinea {
 
     //Ejercicio 3
     /**
-     * Este método calcula el número de Fibonacci en
-     * la posición dada.
-     * @param n la posición en la cual se desea conocer
-     * el valor del número de fibonacci.
+     * Este método calcula el número de Fibonacci en la posición dada
+     * para ello suma los 2 términos anteriores a este.
+     *
+     * @param n el número de fibonnaci a calcular
      * @return el valor de fibonacci en la posición n.
      */
     public int fibonacci(int n) {
@@ -51,6 +57,7 @@ public class ejerciciosEnLinea {
      * que hay en una cantidad dada de conejos, siendo
      * los conejos en posiciones pares de tres orejas
      * y los conejos en posiciones impares de dos orejas.
+     *
      * @param bunnies la cantidad de conejos
      * @return la cantidad de orejas, teniendo
      * los conejos en posición par tres orejas y
@@ -67,10 +74,12 @@ public class ejerciciosEnLinea {
     // T(n) = T(n-1) + c_1
     //Ejercicio 5
     /**
-     * @param rows la cantidad de filas horizontales
-     * que tiene el triángulo.
-     * @return el número de bloques necesarios para 
-     * construir dicho triángulo con las filas dadas.
+     * Este método se encarga de decir cuantos bloques se pueden ubicar en una cantidad n de filas
+     * para hacer un triángulo.
+     *
+     * @param rows la cantidad de filas horizontales que tiene el triángulo.
+     *
+     * @return el número de bloques necesarios para construir dicho triángulo con las filas dadas.
      */
     public int triangle(int rows) {
         if(rows == 0){
@@ -86,6 +95,7 @@ public class ejerciciosEnLinea {
      * Este método determina si dado un arreglo de enteros,
      * es posible escoger un grupo de algunos enteros, de tal
      * manera que, la suma del grupo sea igual al entero objetivo (target).
+     *
      * @param start posición de comienzo del arreglo.
      * @param nums arreglo de enteros a considerar.
      * @param target valor esperado.
@@ -102,15 +112,16 @@ public class ejerciciosEnLinea {
     //T(n) = 2 T(n-1) + c_2
 
     //Ejercicio 2
-     /**
+    /**
      * Este método determina si, dado un arreglo de enteros,
      * es posible escoger un grupo de algunos de los enteros,
      * comenzando por el índice de inicio (start), tal que la
      * suma de los elementos en el grupo sea igual al (entero dado)
-     * objetivo (target). Sin embargo, con la restricción de que si 
+     * objetivo (target). Sin embargo, con la restricción de que si
      * un valor en el arreglo es incluído en el grupo, el valor
      * que sigue inmediatamente a este en el arreglo no puede
      * ser incluído.
+     *
      * @param start índice o posición de inicio.
      * @param nums arreglo de enteros a considerar.
      * @param target valor esperado.
@@ -126,7 +137,7 @@ public class ejerciciosEnLinea {
     // T(n) = 2 T(n-1) + c_2
 
     //Ejercicio 3
-     /**
+    /**
      * Este método determina si, dado un arreglo de enteros,
      * se puede dividir el arreglo en dos nuevos arreglos,
      * de tal manera que, la suma de ambos grupos sea la misma.
@@ -137,6 +148,7 @@ public class ejerciciosEnLinea {
      * En este método se trabaja con un auxiliar
      * que evalúa todos los condicionales y devuelve el
      * resultado al método split53
+     *
      * @param nums arreglo de enteros a considerar.
      * @return true si se cumple. De lo contrario retorna false.
      */
@@ -176,6 +188,7 @@ public class ejerciciosEnLinea {
      * se abren dos posibilidades: La primera en la que se pueden
      * incluir a todos en el grupo, o la segunda, que es no incluir
      * a ninguno.
+     *
      * @param start índice o posición de inicio.
      * @param nums arreglo de enteros a considerar.
      * @param target valor esperado.
@@ -207,6 +220,7 @@ public class ejerciciosEnLinea {
      * es posible dividir el arreglo en dos nuevos arreglos,
      * de tal manera que la suma de los dos grupos sea la misma.
      * Cada entero debe estar en uno u otro grupo.
+     *
      * @param nums arreglo de enteros a considerar.
      * @return true si se cumple. De lo contrario retorna false.
      */
