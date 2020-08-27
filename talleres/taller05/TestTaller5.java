@@ -3,6 +3,8 @@ package Taller05;
 
 import Taller03.Taller3;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author
@@ -15,6 +17,7 @@ public class TestTaller5 {
         b = Taller5.suma(new int[] {12,324,43,2,3,43,2,3,43});
         c = Taller5.suma(new int[] {3,2,343,2,43,55,67,68,86,3,4});
         d = Taller5.suma(new int[] {56,7,6,45,8,4,34,8,7,5,34,7,78,9});
+
         if(a!=20 || b!=475 || c!=676 || d!=308)
             return false;
         return true;
@@ -81,9 +84,9 @@ public class TestTaller5 {
 
 
         //Ejercicio3
-        if(ejercicio3())
+      if(ejercicio3())
             System.out.println("Ejercicio 3 Correcto");
-        else
+      else
             System.out.println("Ejercicio 3 Incorrecto");
     }
 

@@ -1,5 +1,7 @@
 package Taller05;
 
+import java.util.ArrayList;
+
 /**
  * La clase Taller5 tiene la intención de resolver el taller número 5.
  *
@@ -23,7 +25,17 @@ public class Taller5 {
         return acum;        // c5
     }                       // T(n) = c1 + c2 + c5 + (c3 + c4) * n
                             // T(n) es O(n)
+                            // Donde n es el tamaño del array
+    /**
+     * Código usado para medir el tiempo usado
+        for (int n = 10000000; n < 500000000; n = n + 10000000){
+        long ti = System.currentTimeMillis();
+        suma(new int[n]);
+        long tf = System.currentTimeMillis();
+        System.out.println(tf-ti);
+     }
 
+     **/
 
     /**
      * @param num es el numero el cual se utiliza para ser multiplicado.
@@ -34,10 +46,24 @@ public class Taller5 {
      */
     public static void mul (int num){
         for(int i = 1; i <= num; i++){ // T(n) = c1 * n +c2
-            System.out.println(num + " x " + i + " = " + (num*i)); // c3 * n
+           System.out.println(num + " x " + i + " = " + (num*i)); // c3 * n
         }   //T(n) = c3 * n + c2 + c1 * n
             //T(n) = O(n)
+            //Donde n es el valor máximo por el cual se va a multiplicar y será la últiam tabla de multiplicar.
     }
+    /**
+     * Código usado para medir el tiempo usado
+    ArrayList<Integer> nums = new ArrayList<>();
+        for (int n = 1000000; n < 1002000; n = n + 100){
+        long ti = System.currentTimeMillis();
+        Taller5.mul(n);
+        long tf = System.currentTimeMillis();
+        nums.add((int)(tf-ti));
+    }
+        for(int a = 0; a < nums.size(); a++){
+        System.out.println(nums.get(a));
+    }
+     **/
 
     /**
      * @param array es un arreglo de números desordenados
@@ -61,4 +87,24 @@ public class Taller5 {
     }
     // T(n) = c1 * n + c2 + c3n + n^2 + c4n + c5n^2 + c6n^2 + c7n^2 + c8n^2
     // T(n) = O(c8n^2) ==> T(n) = O(n^2)
+    // Donde n es el tamaño del arreglo
+    /**
+     *        Código usado para medir el tiempo usado
+     *
+     public static void pruebaTNums(int n){
+     for(int i = 10000; i <= 110000; i = i + 5000){
+         pruebaTiempoInsertionSort(i);
+     }
+     }
+     public static void pruebaTiempoInsertionSort(int n){
+     int [] prueba = new int[n];
+     for(int i = 0; i < prueba.length; i++) {
+         prueba[i] = (int) Math.random() * 1000000000 + 1;
+     }
+     long ti = System.currentTimeMillis();
+     Taller5.insertionSort(prueba);
+     long tf = System.currentTimeMillis();
+     System.out.println(tf-ti);
+     }
+     */
 }
