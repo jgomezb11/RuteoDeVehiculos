@@ -1,25 +1,16 @@
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package taller06;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Arrays;
 /**
  *
- * @author Anything
+ * @author Julian Gomez || Juan Pablo Usma
  */
 public class Taller06 {
 
      /**
-     * Se puede leer los elementos por consola con la ayuda de la clase index.
-     * luego solo se agregan a un objeto arraylist y se imprime.
-     * el arreglo tiene que estar de forma inversa
-     * ejemplo, para las entras 1 , 2 , 6, -1
-     * el arreglo tendría este orden [ 6, 2, 1].
+     * Imprime los datos ingresados por consola de forma inversa
+     * hasta que se digite un -1.
      * @return un arraylist con todos los elementos ingresados de forma invertida
      */
     public static ArrayList<Integer> opcinal2 (){
@@ -38,11 +29,9 @@ public class Taller06 {
     }
 
     /**
-     * @param n el numero hasta el cual se llevara acabo el patrón siguiente
-     * vamos a implementar un nuevo nuevo a la vez no antes de haber
-     * contado desde el inicio ejemplo n=4 entonces el arreglo sería
-     * [ 1,1,2,1,2,3,1,2,3,4] de modo que siempre que se ingresa uno nuevo
-     * comienza la cuenta desde 1.
+     * Este metodo genera un arreglo con un patron que empieza desde 1 
+     * y termina en n. 
+     * @param n el numero hasta el cual se llevara acabo el patrón
      * @return un arraylist con todos los elementos ingresados
      */
     public static ArrayList<Integer> opcinal3 (int n){
