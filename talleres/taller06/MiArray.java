@@ -6,7 +6,7 @@
 import java.util.Arrays;
 public class MiArray {
     private int size;
-    private static final int DEFAULT_CAPACITY = 3;
+    private static final int DEFAULT_CAPACITY = 10;
     private int array[];
 
     /**
@@ -81,7 +81,8 @@ public class MiArray {
                 extend();
             }
         }
-    }
+    } // La compeljidad de este metodo add es O(n) (Donde n es la cantidad de elementos) 
+     // y creemos que puede ser viable para millones de abejas puesto que no aumenta exponencialmente la compeljidad.
 
     private void extend() {
         int [] array2 =  new int[array.length + 1 ];
