@@ -120,7 +120,7 @@ public class ejercicioEnLinea {
      * se buscará un primer elemento a la izquierda y después se buscará la misma aparición de ese elemento
      * a la derecha, cada que se pase un valor dentro del intervalo contara como 1.
      * devuelva el intervalo más grande que se puede hacer con el arreglo.
-     * @param nums el arreglo al cual se le buscarán los intervalos.           |
+     * @param nums el arreglo al cual se le buscarán los intervalos.
      * @return la longitud inclusiva del intervalo encontrado.
      *           elemento 1  elemento2
      *           |           |
@@ -170,18 +170,19 @@ public class ejercicioEnLinea {
                 iterator4 += 1; // c14 * n
             }
         }
-        res = nums; // c15 * n
+        res = nums; // c15
         int [] pos31= new int[iterator3]; //c16
         for(int i = 0; i < pos31.length; i++){ // T(n) = c17 * n + c18
-            pos31[i] = pos3[i]; //c19
+            pos31[i] = pos3[i]; //c19 * n
         }
         for(int i = 0; i < pos31.length; i++){// T(n) = c20 * n + c21
-            aux = res[pos31[i]+1]; // c22
-            res[pos31[i]+1] = res[pos4[i]]; // c23
-            res[pos4[i]] = aux; // c24
+            aux = res[pos31[i]+1]; // c22 * n
+            res[pos31[i]+1] = res[pos4[i]]; // c23 * n
+            res[pos4[i]] = aux; // c24 * n
         }
         return res;
     }
+    // T(n) = c1 + c2 + c3 + c4 + c5 + c6 + c7 * n + c8 + c9 * n + c10 * n + c11 * n + c12 * n + c13 * n + c14 * n + c15 + c16 + c17 * n + c18 + c19 * n + c20 * n + c21 + c22 * n + c23 * n + c24 *n
     // T(n) = c7 * n + c8 ==> T(n) = O(n)
     // Donde n es el tamaño del arreglo
 
