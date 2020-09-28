@@ -49,7 +49,7 @@ public class BrokenKeyBoard {
         } while (opcion == 0);
     }
 
-    public static String brokenKeyboard(String prueba) { //Falta terminarlo.
+    public static String brokenKeyboard(String prueba) {    
         LinkedList<String> lista = new LinkedList<>();
         boolean alFinal = true;
         int k = 0;
