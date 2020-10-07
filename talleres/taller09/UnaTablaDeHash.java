@@ -61,6 +61,6 @@ public class UnaTablaDeHash
      * Este método se utiliza para agregar un nuevo elemento
      */
     public void put(String k, int v){
-        tabla[funcionHash(k)].add(new Pair(v,k));
+        tabla[funcionHash(k)].add(new Pair(k,v));
     }
 }
