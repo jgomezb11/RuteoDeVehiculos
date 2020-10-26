@@ -40,7 +40,8 @@ public class Octree
             LinkedList<Bee> ab = new LinkedList();
             octree.add(ab);
         }
-        for (int i=0;i<abejas.size();++i){
+        int abejasSize = abejas.size();
+        for (int i=0;i<abejasSize;++i){
             Bee abeja = abejas.poll();
             int sector = hashing(abeja,mins);
             octree.get(sector).addFirst(abeja);
@@ -171,10 +172,13 @@ public class Octree
      * Se carga un sector del árbol, estas se imprimen si estan en riesgo de colisión
      * @param abejas: abejas de un sector
      */
-    public void choque(LinkedList<Bee> abejas) {
-        //System.out.println("Las abejas en las siguientes coordenadas estan en peligro de chocarse");
-        for (Bee abeja:abejas) {
-            System.out.println(abejas.poll().getLatitude()+","+abejas.poll().getLongitude()+","+abejas.poll().getAltitude());
+    public void choque(LinkedList<Bee> abejas){
+        int abejasSize = abejas.size();
+        for (int i = 0; i < abejasSize; i++) {
+            String latitude = abejas.peek().getLatitude()+"";
+            String longitud = abejas.peek().getLongitude()+"";
+            String altitud = abejas.poll().getAltitude()+"";
+            System.out.println(latitude+","+longitud+","+altitud);
         }
     }
 }

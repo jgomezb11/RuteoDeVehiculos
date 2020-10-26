@@ -12,8 +12,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.ArrayList;
 public class Main
 {
-    Reader rm = new Reader();
-    public void main () throws IOException {
+    public static void main(String[] args) throws IOException {
+        Reader rm = new Reader();
         try {
             //System.out.println("Porfavor ingrese la direccion donde se encuentran las coordenadas de las abejas");
             //Scanner dir=new Scanner(System.in);
@@ -34,7 +34,7 @@ public class Main
                 if (i==0) {
                     System.gc();
                 }
-                rm.leer("ConjuntoDeDatosCon4abejas.txt");
+                rm.leer("src\\Lab04\\codigo\\ConjuntoDeDatosCon4abejas.csv");
                 if (i==0) {
                     Runtime rt = Runtime.getRuntime();
                     long usedMB = (rt.totalMemory()-rt.freeMemory())/1024/1024;
@@ -49,7 +49,7 @@ public class Main
                 if (i==0) {
                     System.gc();
                 }
-                rm.leer("ConjuntoDeDatosCon10abejas.txt");
+                rm.leer("src\\Lab04\\codigo\\ConjuntoDeDatosCon10abejas.csv");
                 if (i==0) {
                     Runtime rt=Runtime.getRuntime();
                     long usedMB=(rt.totalMemory()-rt.freeMemory())/1024/1024;
@@ -64,7 +64,7 @@ public class Main
                 if (i==0) {
                     System.gc();
                 }
-                rm.leer("ConjuntoDeDatosCon15abejas.txt");
+                rm.leer("src\\Lab04\\codigo\\ConjuntoDeDatosCon15abejas.csv");
                 if (i==0) {
                     Runtime rt=Runtime.getRuntime();
                     long usedMB=(rt.totalMemory()-rt.freeMemory())/1024/1024;
@@ -79,7 +79,7 @@ public class Main
                 if (i==0) {
                     System.gc();
                 }
-                rm.leer("ConjuntoDeDatosCon150abejas.txt");
+                rm.leer("src\\Lab04\\codigo\\ConjuntoDeDatosCon150abejas.csv");
                 if (i==0) {
                     Runtime rt=Runtime.getRuntime();
                     long usedMB=(rt.totalMemory()-rt.freeMemory())/1024/1024;
@@ -94,7 +94,7 @@ public class Main
                 if (i==0) {
                     System.gc();
                 }
-                rm.leer("ConjuntoDeDatosCon1000abejas.txt");
+                rm.leer("src\\Lab04\\codigo\\ConjuntoDeDatosCon1000abejas.csv");
                 if (i==0) {
                     Runtime rt=Runtime.getRuntime();
                     long usedMB=(rt.totalMemory()-rt.freeMemory())/1024/1024;
@@ -109,7 +109,7 @@ public class Main
                 if (i==0) {
                     System.gc();
                 }
-                rm.leer("ConjuntoDeDatosCon1500abejas.txt");
+                rm.leer("src\\Lab04\\codigo\\ConjuntoDeDatosCon1500abejas.csv");
                 if (i==0) {
                     Runtime rt=Runtime.getRuntime();
                     long usedMB=(rt.totalMemory()-rt.freeMemory())/1024/1024;
