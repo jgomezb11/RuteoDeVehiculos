@@ -1,4 +1,3 @@
-package Lab05.EjercicioEnLinea;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,10 +6,12 @@ import java.util.Arrays;
 public class DigraphAM extends Graph {
 
     //Grafo con matriz
-    private int[][] mat;
+    public int[][] mat;
+    public int size;
 
     public DigraphAM(int size){
         super(size);
+        this.size = size;
         mat = new int[size][size];
 
     }
@@ -44,8 +45,5 @@ public class DigraphAM extends Graph {
             }
         }
         return np;
-    }
-    public int getFirst() {
-        return mat[1][0];
     }
 }

@@ -1,4 +1,4 @@
-package Lab05.EjercicioEnLinea;
+
 
 import javax.tools.Diagnostic;
 import java.io.File;
@@ -12,7 +12,7 @@ public class Scan {
 
     public void readBicolor() throws FileNotFoundException {
 
-        Scanner read = new Scanner(new File("src\\Lab05\\EjercicioEnLinea\\Entrada.txt"));
+        Scanner read = new Scanner(new File("Entrada.txt"));
         String line = read.nextLine();
         Scanner scanLine = new Scanner(line);
         DigraphAM am = null;
@@ -32,8 +32,7 @@ public class Scan {
             scanLine = new Scanner(line);
             nodos = scanLine.nextInt();
             am.imprimir();
-            Node node = new Node(nodos);
-            if (Algorithm.DFSColorFC(am,node)){
+            if (Algorithm.DFSColorFC(am)){
                 System.out.println("BICOLORABLE");
             }else{
                 System.out.println("NO BICOLORABLE");

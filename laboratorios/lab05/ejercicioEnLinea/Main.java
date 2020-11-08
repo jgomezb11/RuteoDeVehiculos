@@ -1,4 +1,4 @@
-package Lab05.EjercicioEnLinea;
+
 
 import java.io.FileNotFoundException;
 

@@ -1,4 +1,3 @@
-package Lab05.EjercicioEnLinea;
 
 import java.util.ArrayList;
 //CODIGO BASE DADO POR EL PROFESOR
