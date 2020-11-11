@@ -13,6 +13,7 @@ import java.nio.file.Paths;
 public class Datos{
 
     String[][] datos;
+    int longitud = leerCantidadDatos();
 
     Datos(){
         this.datos = new String[leerCantidadDatos()][];
@@ -35,7 +36,7 @@ public class Datos{
 
     public int leerCantidadDatos(){
         int count = 0;
-        Path filePath = Paths.get("1_test_balanced_15000.csv");
+        Path filePath = Paths.get("src\\1_test_balanced_15000.csv");
         try {
             BufferedReader br = Files.newBufferedReader(filePath);
             String linea = br.readLine();
@@ -49,7 +50,7 @@ public class Datos{
     }
 
     public void leerDatos(){
-        Path filePath = Paths.get("1_test_balanced_15000.csv");
+        Path filePath = Paths.get("src\\1_test_balanced_15000.csv");
         try {
             BufferedReader br = Files.newBufferedReader(filePath);
             String linea;

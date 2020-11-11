@@ -1,6 +1,11 @@
 public class ImpurezaDeGini {
 
-    public float sacarGini(String[][] m){
+    public ImpurezaDeGini(){}
+
+    String[][] matrizValoresIguales;
+    String[][] matrizValoresDiferentes;
+
+    public static float sacarGini(String[][] m){
         float losQueTienenExito = 0;
         for (int fila = 0; fila < m.length; fila++)
             if (m[fila][m[0].length-1].equals("1"))
@@ -21,14 +26,14 @@ public class ImpurezaDeGini {
     }
 
 
-    public  float impurezaPonderada(String[][] m, int posVariable, String valor){
+    public float impurezaPonderada(String[][] m, int posVariable, String valor){
         int estudiantesConValorIgual = 0;
         for (int fila = 0; fila < m.length; fila++)
             if (m[fila][posVariable].equalsIgnoreCase(valor))
                 estudiantesConValorIgual++;
         int estudiantesConValorDiferente = m.length - estudiantesConValorIgual;
-        String[][] matrizValoresIguales = new String[estudiantesConValorIgual][m[0].length];
-        String[][] matrizValoresDiferentes = new String[estudiantesConValorDiferente][m[0].length];
+        matrizValoresIguales = new String[estudiantesConValorIgual][m[0].length];
+        matrizValoresDiferentes = new String[estudiantesConValorDiferente][m[0].length];
         // Copiar los datos a las matrices
         int fila = 0;
         int filaN1 = 0;
@@ -49,7 +54,7 @@ public class ImpurezaDeGini {
         return impurezaPonderada;
     }
 
-    public  float impurezaPonderada(String[][] m, int posVariable, float valor){
+    public float impurezaPonderada(String[][] m, int posVariable, float valor){
         int estudiantesConValorIgual = 0;
         for (int fila = 0; fila < m.length; fila++)
             if (Float.parseFloat(m[fila][posVariable]) >= valor)
