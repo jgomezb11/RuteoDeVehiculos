@@ -1,4 +1,7 @@
+import java.util.Arrays;
+import java.util.List;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 public class Nodo{
     private String[][] matriz;
@@ -8,12 +11,18 @@ public class Nodo{
     private String elValor;
     private float gini;
     boolean exitoHoja;
+
     ImpurezaDeGini idg = new ImpurezaDeGini();
     Datos datos = new Datos();
     int longitudInicial = datos.longitud;
 
+    int[] d = new int[]{0, 1, 2, 3, 4, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 32, 33, 34, 37, 38, 39, 40, 41, 43, 45, 46, 47, 48, 49, 50, 52, 53, 56, 57, 58, 59, 61, 62, 63, 64, 74, 75, 76};
+    List<Integer> you = Arrays.stream(d).boxed().collect(Collectors.toList());
+    TreeSet<Integer> valoresNoPermitidos = new TreeSet<Integer>();
+
     public Nodo (String[][] m){
-        if (!((longitudInicial - m.length) < (longitudInicial - (longitudInicial/3)))){
+        valoresNoPermitidos.addAll(you);
+        if (m.length <= (longitudInicial*33)/100){
             matriz = m;
             exitoHoja = calcularSiHayExitoONOEnUnaMatriz(m);
         }
@@ -37,7 +46,7 @@ public class Nodo{
                 count++;
             }
         }
-        if(count > (longitudInicial*30)/100){
+        if(count > (m.length*80)/100){
             System.out.println("Alguno dio");
             return true;
         }else{
@@ -60,6 +69,9 @@ public class Nodo{
         int laPosDeLaVariableDondeEstaElMejorValor = -1;
         for (int columna = 0; columna < m[0].length - 1; columna++) {
             valores = sacarLosValoresDiferentesSinRepetirDeUnaVariable(m, columna);
+            if(valoresNoPermitidos.contains(columna)){
+                continue;
+            }
             for (String unValor : valores) {
                 float impurezaPonderadaDeEstaColumnaConEsteValor = idg.impurezaPonderada(m, columna, unValor);
                 if (impurezaPonderadaDeEstaColumnaConEsteValor < laImpurezaMenorDentreTodoElmundo){
