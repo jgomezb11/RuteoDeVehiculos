@@ -1,4 +1,3 @@
-import java.util.LinkedList;
 import java.util.TreeSet;
 
 public class Nodo{
@@ -11,10 +10,10 @@ public class Nodo{
     boolean exitoHoja;
     ImpurezaDeGini idg = new ImpurezaDeGini();
     Datos datos = new Datos();
-    int a = datos.longitud;
+    int longitudInicial = datos.longitud;
 
     public Nodo (String[][] m){
-        if (m.length < a/8){
+        if (!((longitudInicial - m.length) < (longitudInicial - (longitudInicial/3)))){
             matriz = m;
             exitoHoja = calcularSiHayExitoONOEnUnaMatriz(m);
         }
@@ -38,9 +37,11 @@ public class Nodo{
                 count++;
             }
         }
-        if(count > (a*85)/100){
+        if(count > (longitudInicial*30)/100){
+            System.out.println("Alguno dio");
             return true;
         }else{
+            System.out.println("Estan perdidos");
             return false;
         }
     }
