@@ -56,7 +56,7 @@ public class Nodo{
     }
 
     public TreeSet<String> sacarLosValoresDiferentesSinRepetirDeUnaVariable(String[][] m, int posVariable){
-        TreeSet<String> respuesta = new TreeSet();
+        TreeSet<String> respuesta = new TreeSet<String>();
         for (int fila = 0; fila < m.length; fila++)
             respuesta.add(m[fila][posVariable]);
         return respuesta;
@@ -73,7 +73,7 @@ public class Nodo{
                 continue;
             }
             for (String unValor : valores) {
-                float impurezaPonderadaDeEstaColumnaConEsteValor = idg.impurezaPonderada(m, columna, unValor);
+                float impurezaPonderadaDeEstaColumnaConEsteValor = Math.min((idg.impurezaPonderada(m, columna, unValor)),((!unValor.isEmpty()&&(unValor.matches("^[0-9]*$")))?idg.impurezaPonderada(m, columna,70.0f):1.0f));
                 if (impurezaPonderadaDeEstaColumnaConEsteValor < laImpurezaMenorDentreTodoElmundo){
                     laImpurezaMenorDentreTodoElmundo = impurezaPonderadaDeEstaColumnaConEsteValor;
                     elMejorValorDentreTodoElMundo = unValor;
@@ -81,7 +81,7 @@ public class Nodo{
                 }
             }
         }
-        Pair<Integer,String> respuesta = new Pair(laPosDeLaVariableDondeEstaElMejorValor, elMejorValorDentreTodoElMundo);
+        Pair<Integer,String> respuesta = new Pair<Integer,String>(laPosDeLaVariableDondeEstaElMejorValor, elMejorValorDentreTodoElMundo);
         return respuesta;
     }
 

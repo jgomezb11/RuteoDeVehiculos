@@ -7,9 +7,10 @@ public class ImpurezaDeGini {
 
     public static float sacarGini(String[][] m){
         float losQueTienenExito = 0;
-        for (int fila = 0; fila < m.length; fila++)
+        for (int fila = 0; fila < m.length; fila++){
             if (m[fila][m[0].length-1].equals("1"))
                 losQueTienenExito++;
+        }
         float losQueNoTienenExito = m.length - losQueTienenExito;
         float proporcionDeLosQueTienenExito = losQueTienenExito/m.length;
         float proporcionDeLosQueNoTieneExito = losQueNoTienenExito/m.length;
@@ -82,4 +83,3 @@ public class ImpurezaDeGini {
         return impurezaPonderada;
     }
 }
-
