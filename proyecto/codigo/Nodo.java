@@ -41,18 +41,16 @@ public class Nodo{
 
     public boolean calcularSiHayExitoONOEnUnaMatriz(String[][] m){
         int count = 0;
+        float porcent = 0;
         for(int i = 0; i < m.length; i++){
             if(m[i][m[0].length-1].equals("0")){
                 count++;
             }
         }
-        if(count > (m.length*80)/100){
-            System.out.println("Alguno dio");
-            return true;
-        }else{
-            System.out.println("Estan perdidos");
-            return false;
-        }
+        porcent = (count * 100)/m.length;
+        System.out.println("En esta hoja el " + porcent + "% tuvo exito.");
+        if(porcent > 80.0f) return true;
+        return false;
     }
 
     public TreeSet<String> sacarLosValoresDiferentesSinRepetirDeUnaVariable(String[][] m, int posVariable){
@@ -73,7 +71,12 @@ public class Nodo{
                 continue;
             }
             for (String unValor : valores) {
-                float impurezaPonderadaDeEstaColumnaConEsteValor = Math.min((idg.impurezaPonderada(m, columna, unValor)),((!unValor.isEmpty()&&(unValor.matches("^[0-9]*$")))?idg.impurezaPonderada(m, columna,70.0f):1.0f));
+                float impurezaPonderadaDeEstaColumnaConEsteValor;
+                if((!unValor.isEmpty())&&(unValor.matches("^[0-9]*$"))){
+                    impurezaPonderadaDeEstaColumnaConEsteValor = idg.impurezaPonderada(m, columna, 50.0f);  
+                }else{
+                    impurezaPonderadaDeEstaColumnaConEsteValor = idg.impurezaPonderada(m, columna, unValor);
+                }
                 if (impurezaPonderadaDeEstaColumnaConEsteValor < laImpurezaMenorDentreTodoElmundo){
                     laImpurezaMenorDentreTodoElmundo = impurezaPonderadaDeEstaColumnaConEsteValor;
                     elMejorValorDentreTodoElMundo = unValor;
