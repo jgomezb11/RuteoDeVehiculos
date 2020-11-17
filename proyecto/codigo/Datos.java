@@ -1,5 +1,5 @@
 /**
- * Write a description of class Datos here.
+ * La clase datos se encarga de el manejo de los archivos, respecto a leerlos y saber cuantos datos se estan leyendo.
  *
  * @author Juan Pablo Rincon - Julian Gomez Benitez
  * @version 15-09-2020
@@ -15,10 +15,18 @@ public class Datos{
     String[][] datos;
     int longitud = leerCantidadDatos();
 
+    /**
+     * Constructor de los datos, se encarga de definir el tamaño total de la matriz donde se guardaran.
+     * @ver leerCantidadDatos().
+     */
     Datos(){
         this.datos = new String[leerCantidadDatos()][];
     }
 
+    /**
+     * método toString para poder visualizar los datos almacenados.
+     * @return String de datos.
+     */
     @Override
     public String toString() {
         return "Datos{" +
@@ -26,17 +34,21 @@ public class Datos{
                 '}';
     }
 
+    /**
+     * Método para acceder a los datos.
+     * @return matriz con los datos.
+     */
     public String[][] getDatos() {
         return datos;
     }
 
-    public void setDatos(String[][] datos) {
-        this.datos = datos;
-    }
-
+    /**
+     * Método encargado de leer todas las filas del archivo y contar cuantas hay.
+     * @return el número de filas totales del archivo.
+     */
     public int leerCantidadDatos(){
         int count = 0;
-        Path filePath = Paths.get("1_test_balanced_15000.csv");
+        Path filePath = Paths.get("src\\4_train_balanced_135000.csv");
         try {
             BufferedReader br = Files.newBufferedReader(filePath);
             String linea = br.readLine();
@@ -49,8 +61,11 @@ public class Datos{
         return count;
     }
 
+    /**
+     * Método encargado de almacenar todos los datos a la matriz y llenarla.
+     */
     public void leerDatos(){
-        Path filePath = Paths.get("1_test_balanced_15000.csv");
+        Path filePath = Paths.get("src\\4_train_balanced_135000.csv");
         try {
             BufferedReader br = Files.newBufferedReader(filePath);
             String linea;
