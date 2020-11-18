@@ -12,15 +12,18 @@ import java.nio.file.Paths;
 
 public class Datos{
 
-    String[][] datos;
-    int longitud = leerCantidadDatos();
+    static String[][] datos;
+    static String[][] datosTest;
+    static int longitud = leerCantidadDatos();
+    static int longitudTest = leerCantidadDatosTest();
 
     /**
      * Constructor de los datos, se encarga de definir el tamaño total de la matriz donde se guardaran.
-     * @ver leerCantidadDatos().
+     * @use leerCantidadDatos().
      */
     Datos(){
         this.datos = new String[leerCantidadDatos()][];
+        this.datosTest = new String[leerCantidadDatosTest()][];
     }
 
     /**
@@ -35,20 +38,12 @@ public class Datos{
     }
 
     /**
-     * Método para acceder a los datos.
-     * @return matriz con los datos.
-     */
-    public String[][] getDatos() {
-        return datos;
-    }
-
-    /**
      * Método encargado de leer todas las filas del archivo y contar cuantas hay.
      * @return el número de filas totales del archivo.
      */
-    public int leerCantidadDatos(){
+    public static int leerCantidadDatos(){
         int count = 0;
-        Path filePath = Paths.get("src\\4_train_balanced_135000.csv");
+        Path filePath = Paths.get("src\\0_train_balanced_15000.csv");
         try {
             BufferedReader br = Files.newBufferedReader(filePath);
             String linea = br.readLine();
@@ -64,8 +59,8 @@ public class Datos{
     /**
      * Método encargado de almacenar todos los datos a la matriz y llenarla.
      */
-    public void leerDatos(){
-        Path filePath = Paths.get("src\\4_train_balanced_135000.csv");
+    public static void leerDatos(){
+        Path filePath = Paths.get("src\\0_train_balanced_15000.csv");
         try {
             BufferedReader br = Files.newBufferedReader(filePath);
             String linea;
@@ -78,5 +73,71 @@ public class Datos{
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+    /**
+     * Método encargado de almacenar todos los datos a la matriz y llenarla.
+     */
+    public void leerDatosTest(){
+        Path filePath = Paths.get("src\\1_test_balanced_15000.csv");
+        try {
+            BufferedReader br = Files.newBufferedReader(filePath);
+            String linea;
+            linea = br.readLine();
+            linea = br.readLine();
+            for(int i = 0;i < datosTest.length;i++){
+                datosTest[i] = linea.split(";");
+                linea = br.readLine();
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Método encargado de leer todas las filas del archivo para testear el algoritmo y contar cuantas hay.
+     * @return el número de filas totales del archivo.
+     */
+    public static int leerCantidadDatosTest(){
+        int count = 0;
+        Path filePath = Paths.get("src\\1_test_balanced_15000.csv");
+        try {
+            BufferedReader br = Files.newBufferedReader(filePath);
+            String linea = br.readLine();
+            while ((linea = br.readLine()) != null){
+                count++;
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    /**
+     * Método encargado de sacar el exito total de una matriz (sacar todas las personas correctas).
+     * @return la cantidad e personas que hayan acertado.
+     */
+    public static int datosRelevantesTest(){
+        int verdaderosTotales = 0;
+        for(int i = 0; i < datosTest.length; i++){
+            if(datosTest[i][datosTest[0].length-1].equals("0")){
+                verdaderosTotales++;
+            }
+        }
+        return verdaderosTotales;
+    }
+
+    /**
+     * Método encargado de sacar el exito total de una matriz (sacar todas las personas correctas).
+     * @return la cantidad e personas que hayan acertado.
+     */
+    public static int datosRelevantes(){
+        leerDatos();
+        int verdaderosTotales = 0;
+        for(int i = 0; i < datos.length; i++){
+            if(datos[i][datos[0].length-1].equals("0")){
+                verdaderosTotales++;
+            }
+        }
+        return verdaderosTotales;
     }
 }
